@@ -1,0 +1,40 @@
+
+modLoader="javafml" #mandatory
+loaderVersion="[31,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
+
+issueTrackerURL="http://my.issue.tracker/" #optional
+[[mods]] #mandatory
+modId="potatogun" #mandatory
+version="${file.jarVersion}" #mandatory
+
+displayName="Potato Gun" #mandatory
+
+displayURL="http://example.com/" #optional
+
+logoFile="examplemod.png" #optional
+
+# A text field displayed in the mod UI
+authors="agnor99" #optional
+# The description text for the mod (multi line!) (#mandatory)
+description='''
+Do Agriculture with style
+'''
+# A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
+[[dependencies.potatogun]] #optional
+    # the modid of the dependency
+    modId="forge" #mandatory
+    # Does this dependency have to exist - if not, ordering below must be specified
+    mandatory=true #mandatory
+    # The version range of the dependency
+    versionRange="[31,)" #mandatory
+    # An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
+    ordering="NONE"
+    # Side this dependency is applied on - BOTH, CLIENT or SERVER
+    side="BOTH"
+# Here's another dependency
+[[dependencies.potatogun]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.15.2]"
+    ordering="NONE"
+    side="BOTH"

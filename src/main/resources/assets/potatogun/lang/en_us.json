@@ -1,0 +1,6 @@
+{
+  "item.potatogun.potato_gun": "Potato Gun",
+  "lore.potatogun.potato_gun": "Plant your Crops with style (Works with every crop)",
+  "entity.potatogun.plant_projectile": "CropPlanter",
+  "message.potatogun.no_seed": "No valid seeds found"
+}
