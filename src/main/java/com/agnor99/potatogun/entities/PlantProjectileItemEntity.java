@@ -31,11 +31,10 @@ public class PlantProjectileItemEntity extends ProjectileItemEntity {
     public PlantProjectileItemEntity(LivingEntity thrower, World worldIn, ItemStack itemStack) {
         super(EntityInit.PLANT_PROJECTILE.get(), thrower, worldIn);
         setItem(itemStack);
-        seedItemStack = itemStack;
     }
     public PlantProjectileItemEntity(double x,double y,double z, ItemStack itemStack, World worldIn) {
         super(EntityInit.PLANT_PROJECTILE.get(),x,y,z,worldIn);
-        seedItemStack = itemStack;
+        setItem(itemStack);
     }
     public ItemStack getSeedItemStack() {
         return seedItemStack;

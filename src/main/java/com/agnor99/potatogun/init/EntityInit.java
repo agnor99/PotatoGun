@@ -11,7 +11,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class EntityInit {
 
-    public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = new DeferredRegister<>(ForgeRegistries.ENTITIES, PotatoGun.MOD_ID);
+    public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITIES, PotatoGun.MOD_ID);
 
     public static final RegistryObject<EntityType<PlantProjectileItemEntity>> PLANT_PROJECTILE =
             ENTITY_TYPES.register("plant_projectile",() -> EntityType.Builder.<PlantProjectileItemEntity>create(PlantProjectileItemEntity::new, EntityClassification.MISC)

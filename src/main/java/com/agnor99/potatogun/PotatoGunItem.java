@@ -47,13 +47,13 @@ public class PotatoGunItem extends ShootableItem {
             ItemStack seedItem = CropHelper.getCropItem(player.inventory);
 
             if (seedItem.getCount() == 0) {
-                player.sendMessage(new TranslationTextComponent("message.potatogun.no_seed"));
+                player.sendMessage(new TranslationTextComponent("message.potatogun.no_seed"), null);
                 return;
             }
 
             PlantProjectileItemEntity projectile = new PlantProjectileItemEntity(player, worldIn, seedItem);
 
-            projectile.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 0F);
+            projectile.func_234612_a_(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 0F);
 
             worldIn.addEntity(projectile);
         }
@@ -68,6 +68,11 @@ public class PotatoGunItem extends ShootableItem {
     @Override
     public Predicate<ItemStack> getInventoryAmmoPredicate() {
         return SEEDS;
+    }
+
+    @Override
+    public int func_230305_d_() {
+        return 15;
     }
 
     @Override
