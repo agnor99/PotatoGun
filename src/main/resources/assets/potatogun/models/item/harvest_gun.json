@@ -1,0 +1,6 @@
+{
+  "parent": "potatogun:item/abstract_gun",
+  "textures": {
+    "0": "potatogun:items/harvest_gun"
+  }
+}

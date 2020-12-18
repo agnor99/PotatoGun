@@ -1,6 +1,7 @@
 package com.agnor99.potatogun;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.CropsBlock;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.IInventory;
@@ -26,6 +27,13 @@ public class CropHelper {
             }
         });
         return map;
+    }
+
+    public static boolean isGrown(BlockState state) {
+        if(state.getBlock() instanceof CropsBlock) {
+            return state.get(CropsBlock.AGE) == ((CropsBlock) state.getBlock()).getMaxAge();
+        }
+        return false;
     }
 
     public static boolean isCropItem(Item item) {

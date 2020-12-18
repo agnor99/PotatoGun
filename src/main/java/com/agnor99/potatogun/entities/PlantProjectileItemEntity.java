@@ -7,24 +7,19 @@ import net.minecraft.block.FarmlandBlock;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.item.ItemEntity;
-import net.minecraft.entity.projectile.ProjectileItemEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.network.IPacket;
-import net.minecraft.particles.ItemParticleData;
-import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.fml.network.NetworkHooks;
 
 
-public class PlantProjectileItemEntity extends ProjectileItemEntity {
+public class PlantProjectileItemEntity extends AbstractProjectileItemEntity {
     ItemStack seedItemStack;
-    public PlantProjectileItemEntity(EntityType<? extends ProjectileItemEntity> type, World worldIn) {
+    public PlantProjectileItemEntity(EntityType<? extends AbstractProjectileItemEntity> type, World worldIn) {
         super(type, worldIn);
     }
 
@@ -46,22 +41,6 @@ public class PlantProjectileItemEntity extends ProjectileItemEntity {
     }
 
     @Override
-    public void tick() {
-        super.tick();
-    }
-
-    @Override
-    protected void onImpact(RayTraceResult result) {
-        if(result instanceof BlockRayTraceResult) {
-            if(world instanceof ServerWorld) {
-                plant(((BlockRayTraceResult) result).getPos());
-            }else{
-                world.addParticle(new ItemParticleData(ParticleTypes.ITEM, this.getItem()), this.getPosX(), this.getPosY(), this.getPosZ(), 0,0,0);
-            }
-            remove();
-        }
-    }
-    @Override
     public void setItem(ItemStack itemStack) {
         super.setItem(itemStack);
         seedItemStack = itemStack;
@@ -70,6 +49,11 @@ public class PlantProjectileItemEntity extends ProjectileItemEntity {
     @Override
     public IPacket<?> createSpawnPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
+    }
+
+    @Override
+    protected void doWork(BlockRayTraceResult rayTraceResult) {
+        plant(rayTraceResult.getPos());
     }
 
     private void plant(BlockPos hitPos) {

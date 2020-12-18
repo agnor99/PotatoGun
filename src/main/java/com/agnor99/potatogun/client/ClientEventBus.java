@@ -14,5 +14,6 @@ public class ClientEventBus {
     @SubscribeEvent
     public static void clientSetup(FMLClientSetupEvent event) {
         RenderingRegistry.registerEntityRenderingHandler(EntityInit.PLANT_PROJECTILE.get(), new PlantProjectileItemEntityRenderer.Factory());
+        RenderingRegistry.registerEntityRenderingHandler(EntityInit.HARVEST_PROJECTILE.get(), new HarvestProjectileItemEntityRenderer.Factory());
     }
 }

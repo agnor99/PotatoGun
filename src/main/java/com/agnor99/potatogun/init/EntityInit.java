@@ -1,6 +1,7 @@
 package com.agnor99.potatogun.init;
 
 import com.agnor99.potatogun.PotatoGun;
+import com.agnor99.potatogun.entities.HarvestProjectileItemEntity;
 import com.agnor99.potatogun.entities.PlantProjectileItemEntity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -16,4 +17,9 @@ public class EntityInit {
     public static final RegistryObject<EntityType<PlantProjectileItemEntity>> PLANT_PROJECTILE =
             ENTITY_TYPES.register("plant_projectile",() -> EntityType.Builder.<PlantProjectileItemEntity>create(PlantProjectileItemEntity::new, EntityClassification.MISC)
                 .size(0.25f,0.25f).build(new ResourceLocation(PotatoGun.MOD_ID,"plant_projectile").toString()));
+
+    public static final RegistryObject<EntityType<HarvestProjectileItemEntity>> HARVEST_PROJECTILE =
+            ENTITY_TYPES.register("harvest_projectile",() -> EntityType.Builder.<HarvestProjectileItemEntity>create(HarvestProjectileItemEntity::new, EntityClassification.MISC)
+                    .size(0.25f,0.25f).build(new ResourceLocation(PotatoGun.MOD_ID,"harvest_projectile").toString()));
+
 }

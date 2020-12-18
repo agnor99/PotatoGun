@@ -1,21 +1,19 @@
 package com.agnor99.potatogun.dispenser;
 
 import com.agnor99.potatogun.CropHelper;
-import com.agnor99.potatogun.PotatoGunItem;
 import com.agnor99.potatogun.entities.PlantProjectileItemEntity;
 import com.agnor99.potatogun.init.ItemInit;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.dispenser.DefaultDispenseItemBehavior;
 import net.minecraft.dispenser.IBlockSource;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.LockableLootTileEntity;
 import net.minecraft.util.Direction;
 
 public class PotatoGunDispenseBehavior extends DefaultDispenseItemBehavior {
 
     @Override
     protected ItemStack dispenseStack(IBlockSource source, ItemStack stack) {
-        ItemStack seedStack = CropHelper.getCropItem((LockableLootTileEntity)source.getBlockTileEntity());
+        ItemStack seedStack = CropHelper.getCropItem(source.getBlockTileEntity());
         if(seedStack.isEmpty()) return stack;
         Direction direction = source.getBlockState().get(DispenserBlock.FACING);
         PlantProjectileItemEntity projectile = new PlantProjectileItemEntity(DispenserBlock.getDispensePosition(source).getX(), DispenserBlock.getDispensePosition(source).getY(), DispenserBlock.getDispensePosition(source).getZ(), seedStack, source.getWorld());

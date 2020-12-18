@@ -1,6 +1,12 @@
 {
   "item.potatogun.potato_gun": "Potato Gun",
-  "lore.potatogun.potato_gun": "Plant your Crops with style (Works with every crop)",
+  "lore.potatogun.potato_gun": "Plant your Crops with style (Works with most crops)",
   "entity.potatogun.plant_projectile": "CropPlanter",
-  "message.potatogun.no_seed": "No valid seeds found"
+  "message.potatogun.potato_gun.no_ammunition": "No valid seeds found",
+  "item.potatogun.harvest_gun": "Harvesting Gun",
+  "lore.potatogun.harvest_gun": "Harvest your Crops with style (Works with most crops)",
+  "entity.potatogun.harvest_projectile": "CropHarvester",
+  "message.potatogun.harvest_gun.no_ammunition": "No ammunition found",
+
+  "item.potatogun.harvest_ammunition": "Harvesting Ammunition"
 }

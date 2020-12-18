@@ -6,7 +6,7 @@ license="LGPL"
 issueTrackerURL="https://github.com/agnor99/PotatoGun/issues" #optional
 [[mods]] #mandatory
 modId="potatogun" #mandatory
-version="1.0" #mandatory
+version="1.1" #mandatory
 displayName="Potato Gun" #mandatory
 
 logoFile="examplemod.png" #optional

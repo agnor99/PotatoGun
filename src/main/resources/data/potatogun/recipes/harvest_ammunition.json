@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " i ",
+    "isi",
+    " i "
+  ],
+  "key": {
+    "i": {
+      "item": "minecraft:iron_nugget"
+    },
+    "s": {
+      "item": "minecraft:wheat_seeds"
+    }
+  },
+  "result": {
+    "item": "potatogun:harvest_ammunition"
+  }
+}
+
